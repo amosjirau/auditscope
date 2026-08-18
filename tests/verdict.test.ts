@@ -1,23 +1,46 @@
 import { describe, expect, it } from "vitest";
 import { buildCoverageVerdict } from "../lib/evidence/verdict";
 
+function component(
+  coverage: "covered" | "mismatch" | "unresolved",
+  decisive = false,
+) {
+  return {
+    id: "implementation",
+    label: "Implementation",
+    critical: true,
+    coverage,
+    decisive,
+    detail: "test evidence",
+    auditValue: null,
+    liveValue: null,
+  } as const;
+}
+
 describe("buildCoverageVerdict", () => {
   it("returns CURRENT when every critical component is covered", () => {
-    expect(buildCoverageVerdict([{ id: "implementation", critical: true, coverage: "covered" }])).toBe("CURRENT");
+    expect(buildCoverageVerdict([component("covered")])).toBe("CURRENT");
   });
 
   it("returns STALE when the only critical evidence is a decisive mismatch", () => {
-    expect(buildCoverageVerdict([{ id: "implementation", critical: true, coverage: "mismatch" }])).toBe("STALE");
+    expect(buildCoverageVerdict([component("mismatch")])).toBe("STALE");
   });
 
   it("returns PARTIAL for mixed covered and unresolved evidence", () => {
     expect(buildCoverageVerdict([
-      { id: "proxy", critical: true, coverage: "covered" },
-      { id: "implementation", critical: true, coverage: "unresolved" },
+      { ...component("covered"), id: "proxy" },
+      component("unresolved"),
     ])).toBe("PARTIAL");
   });
 
   it("returns UNVERIFIED when no critical component is resolved", () => {
-    expect(buildCoverageVerdict([{ id: "implementation", critical: true, coverage: "unresolved" }])).toBe("UNVERIFIED");
+    expect(buildCoverageVerdict([component("unresolved")])).toBe("UNVERIFIED");
+  });
+
+  it("returns STALE for a decisive implementation mismatch even with other coverage", () => {
+    expect(buildCoverageVerdict([
+      { ...component("covered"), id: "proxy" },
+      component("mismatch", true),
+    ])).toBe("STALE");
   });
 });

@@ -11,21 +11,21 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@ai-sdk/google": "latest",
-    "ai": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "viem": "latest",
-    "zod": "latest"
+    "@ai-sdk/google": "4.0.44",
+    "ai": "7.0.66",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "viem": "2.55.18",
+    "zod": "4.4.3"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "typescript": "latest",
-    "vitest": "latest"
+    "@types/node": "26.2.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
   }
 }
