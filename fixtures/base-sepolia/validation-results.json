@@ -1,0 +1,2466 @@
+{
+  "fixtureVersion": 1,
+  "generatedAt": "2026-08-18T16:02:40.389Z",
+  "model": "gemini-3.5-flash-lite",
+  "mode": "full",
+  "usesProductionPipeline": true,
+  "usesInjectedEvidenceFixtures": false,
+  "chainId": 84532,
+  "scope": {
+    "repository": "https://github.com/amosjirau/auditscope",
+    "commit": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+    "source": "fixtures/base-sepolia/contracts/VaultV1.sol"
+  },
+  "summary": {
+    "totalRuns": 12,
+    "successfulRuns": 12,
+    "allPassed": true
+  },
+  "runs": [
+    {
+      "sequence": 1,
+      "fixture": "CURRENT",
+      "expectedVerdict": "CURRENT",
+      "actualVerdict": "CURRENT",
+      "success": true,
+      "totalLatencyMs": 8278,
+      "geminiExtractionLatencyMs": 5529,
+      "errors": [],
+      "result": {
+        "verdict": "CURRENT",
+        "confidence": "high",
+        "reason": "Every critical audited-to-live mapping available to AuditScope matches.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "medium",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV1",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The audited GitHub source exactly matches the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 2,
+      "fixture": "CURRENT",
+      "expectedVerdict": "CURRENT",
+      "actualVerdict": "CURRENT",
+      "success": true,
+      "totalLatencyMs": 7884,
+      "geminiExtractionLatencyMs": 5517,
+      "errors": [],
+      "result": {
+        "verdict": "CURRENT",
+        "confidence": "high",
+        "reason": "Every critical audited-to-live mapping available to AuditScope matches.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Deployment addresses are reference fixtures only. Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV1",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The audited GitHub source exactly matches the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 3,
+      "fixture": "CURRENT",
+      "expectedVerdict": "CURRENT",
+      "actualVerdict": "CURRENT",
+      "success": true,
+      "totalLatencyMs": 7498,
+      "geminiExtractionLatencyMs": 5024,
+      "errors": [],
+      "result": {
+        "verdict": "CURRENT",
+        "confidence": "high",
+        "reason": "Every critical audited-to-live mapping available to AuditScope matches.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV1",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The audited GitHub source exactly matches the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 4,
+      "fixture": "CURRENT",
+      "expectedVerdict": "CURRENT",
+      "actualVerdict": "CURRENT",
+      "success": true,
+      "totalLatencyMs": 8679,
+      "geminiExtractionLatencyMs": 6134,
+      "errors": [],
+      "result": {
+        "verdict": "CURRENT",
+        "confidence": "high",
+        "reason": "Every critical audited-to-live mapping available to AuditScope matches.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV1",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The audited GitHub source exactly matches the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 5,
+      "fixture": "CURRENT",
+      "expectedVerdict": "CURRENT",
+      "actualVerdict": "CURRENT",
+      "success": true,
+      "totalLatencyMs": 8467,
+      "geminiExtractionLatencyMs": 5857,
+      "errors": [],
+      "result": {
+        "verdict": "CURRENT",
+        "confidence": "high",
+        "reason": "Every critical audited-to-live mapping available to AuditScope matches.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV1",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The audited GitHub source exactly matches the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 6,
+      "fixture": "STALE",
+      "expectedVerdict": "STALE",
+      "actualVerdict": "STALE",
+      "success": true,
+      "totalLatencyMs": 61336,
+      "geminiExtractionLatencyMs": 58658,
+      "errors": [],
+      "result": {
+        "verdict": "STALE",
+        "confidence": "high",
+        "reason": "Strong evidence shows that the live deployment differs from the audited scope.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV2",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "mismatch",
+            "decisive": true,
+            "strength": "strong",
+            "detail": "The audited GitHub source differs from the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "fe796a143602ecbf1d8c16a56a32a184dac10aed943670384ec01697d6965d77"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 7,
+      "fixture": "STALE",
+      "expectedVerdict": "STALE",
+      "actualVerdict": "STALE",
+      "success": true,
+      "totalLatencyMs": 21699,
+      "geminiExtractionLatencyMs": 18256,
+      "errors": [],
+      "result": {
+        "verdict": "STALE",
+        "confidence": "high",
+        "reason": "Strong evidence shows that the live deployment differs from the audited scope.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Deployment addresses are reference fixtures only. Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV2",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "mismatch",
+            "decisive": true,
+            "strength": "strong",
+            "detail": "The audited GitHub source differs from the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "fe796a143602ecbf1d8c16a56a32a184dac10aed943670384ec01697d6965d77"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 8,
+      "fixture": "STALE",
+      "expectedVerdict": "STALE",
+      "actualVerdict": "STALE",
+      "success": true,
+      "totalLatencyMs": 7933,
+      "geminiExtractionLatencyMs": 5534,
+      "errors": [],
+      "result": {
+        "verdict": "STALE",
+        "confidence": "high",
+        "reason": "Strong evidence shows that the live deployment differs from the audited scope.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Deployment addresses are reference fixtures only. Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV2",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "mismatch",
+            "decisive": true,
+            "strength": "strong",
+            "detail": "The audited GitHub source differs from the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "fe796a143602ecbf1d8c16a56a32a184dac10aed943670384ec01697d6965d77"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 9,
+      "fixture": "STALE",
+      "expectedVerdict": "STALE",
+      "actualVerdict": "STALE",
+      "success": true,
+      "totalLatencyMs": 8136,
+      "geminiExtractionLatencyMs": 5071,
+      "errors": [],
+      "result": {
+        "verdict": "STALE",
+        "confidence": "high",
+        "reason": "Strong evidence shows that the live deployment differs from the audited scope.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV2",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "mismatch",
+            "decisive": true,
+            "strength": "strong",
+            "detail": "The audited GitHub source differs from the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "fe796a143602ecbf1d8c16a56a32a184dac10aed943670384ec01697d6965d77"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 10,
+      "fixture": "STALE",
+      "expectedVerdict": "STALE",
+      "actualVerdict": "STALE",
+      "success": true,
+      "totalLatencyMs": 14583,
+      "geminiExtractionLatencyMs": 5636,
+      "errors": [],
+      "result": {
+        "verdict": "STALE",
+        "confidence": "high",
+        "reason": "Strong evidence shows that the live deployment differs from the audited scope.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Deployment addresses are reference fixtures only. Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "contractName": "VaultV2",
+          "sourcePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "mismatch",
+            "decisive": true,
+            "strength": "strong",
+            "detail": "The audited GitHub source differs from the Sourcify-verified live source",
+            "auditValue": "a3834672be3188dfbc3249f6f8fb164cd8246ccf44a5afff67a3eb706daf3b2f",
+            "liveValue": "fe796a143602ecbf1d8c16a56a32a184dac10aed943670384ec01697d6965d77"
+          }
+        ],
+        "limitations": []
+      }
+    },
+    {
+      "sequence": 11,
+      "fixture": "PARTIAL",
+      "expectedVerdict": "PARTIAL",
+      "actualVerdict": "PARTIAL",
+      "success": true,
+      "totalLatencyMs": 27975,
+      "geminiExtractionLatencyMs": 25538,
+      "errors": [
+        "Contract has bytecode but is not verified by Sourcify"
+      ],
+      "result": {
+        "verdict": "PARTIAL",
+        "confidence": "medium",
+        "reason": "Some critical mappings match, but other scope evidence is missing or differs.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+          "hasCode": true,
+          "verificationStatus": "verified",
+          "match": "exact_match",
+          "isProxy": true,
+          "implementationAddress": "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+          "proxyResolutionSource": "sourcify",
+          "error": null
+        },
+        "implementation": {
+          "address": "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+          "verificationStatus": "unverified",
+          "match": null,
+          "contractName": null,
+          "sourcePaths": [],
+          "error": "Contract has bytecode but is not verified by Sourcify"
+        },
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "implementation-address",
+            "label": "Audited vs live implementation",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "The live proxy points to an implementation address explicitly listed in the audit",
+            "auditValue": "0x903C90A8879d54D719Fb1D0De22C105a2f380938, 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f, 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F, 0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+            "liveValue": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "unresolved",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "No corresponding verified live source was found",
+            "auditValue": "ab5cf9fd0650d5933c2e7daa0646b27433210716",
+            "liveValue": null
+          }
+        ],
+        "limitations": [
+          "Contract has bytecode but is not verified by Sourcify"
+        ]
+      }
+    },
+    {
+      "sequence": 12,
+      "fixture": "UNVERIFIED",
+      "expectedVerdict": "UNVERIFIED",
+      "actualVerdict": "UNVERIFIED",
+      "success": true,
+      "totalLatencyMs": 35610,
+      "geminiExtractionLatencyMs": 33564,
+      "errors": [
+        "No contract bytecode exists at this address"
+      ],
+      "result": {
+        "verdict": "UNVERIFIED",
+        "confidence": "low",
+        "reason": "There is not enough independently verified evidence to map this audit to the live deployment.",
+        "extractedScope": {
+          "repositoryUrl": {
+            "value": "https://github.com/amosjirau/auditscope",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Repository https://github.com/amosjirau/auditscope"
+              }
+            ]
+          },
+          "commitSha": {
+            "value": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Exact commit SHA 740eebbb21af164209331eae15e8c9bc2a86ec86"
+              }
+            ]
+          },
+          "sourceFiles": [
+            {
+              "path": "fixtures/base-sepolia/contracts/VaultV1.sol",
+              "contractName": "VaultV1",
+              "evidence": [
+                {
+                  "page": 1,
+                  "excerpt": "Audited source file fixtures/base-sepolia/contracts/VaultV1.sol"
+                },
+                {
+                  "page": 1,
+                  "excerpt": "Contract in scope VaultV1"
+                }
+              ]
+            }
+          ],
+          "contractAddresses": {
+            "value": [
+              "0xC7A79CD13dda7967588549a83110012DCc395266",
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+              "0x76D753410be13BF383366a0F566f90c2d1819b67"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "0xC7A79CD13dda7967588549a83110012DCc395266"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03"
+              },
+              {
+                "page": 2,
+                "excerpt": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              },
+              {
+                "page": 2,
+                "excerpt": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+              }
+            ]
+          },
+          "implementationAddresses": {
+            "value": [
+              "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+              "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+              "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+              "0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+            ],
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 2,
+                "excerpt": "VaultV1 implementation | 0x903C90A8879d54D719Fb1D0De22C105a2f380938"
+              },
+              {
+                "page": 2,
+                "excerpt": "Initial VaultV1 implementation | 0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f"
+              },
+              {
+                "page": 2,
+                "excerpt": "Live VaultV2 implementation (out of scope) | 0x99a32A7715D49714D2aba8Ccc57a468B19Be258F"
+              },
+              {
+                "page": 2,
+                "excerpt": "Unverified implementation (out of scope) | 0x1584AE516269233af9A6dE1E17028D04B93CAE77"
+              }
+            ]
+          },
+          "addressIsScopeBoundary": {
+            "value": false,
+            "confidence": "high",
+            "evidence": [
+              {
+                "page": 1,
+                "excerpt": "Coverage is NOT limited to a particular deployment or address. Exact source correspondence to VaultV1.sol at the stated GitHub commit governs coverage."
+              }
+            ]
+          },
+          "scopeMatchesFixture": true
+        },
+        "deployment": {
+          "address": "0x76D753410be13BF383366a0F566f90c2d1819b67",
+          "hasCode": false,
+          "verificationStatus": "unverified",
+          "match": null,
+          "isProxy": false,
+          "implementationAddress": null,
+          "proxyResolutionSource": "none",
+          "error": "No contract bytecode exists at this address"
+        },
+        "implementation": null,
+        "github": {
+          "repositoryUrl": "https://github.com/amosjirau/auditscope",
+          "requestedRef": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "resolvedSha": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+          "commitVerified": true,
+          "filePaths": [
+            "fixtures/base-sepolia/contracts/VaultV1.sol"
+          ],
+          "error": null
+        },
+        "components": [
+          {
+            "id": "live-deployment",
+            "label": "Live deployment available",
+            "critical": true,
+            "coverage": "unresolved",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "No contract bytecode exists at this address",
+            "auditValue": null,
+            "liveValue": "0x76D753410be13BF383366a0F566f90c2d1819b67"
+          },
+          {
+            "id": "historical-commit",
+            "label": "Historical audit commit",
+            "critical": true,
+            "coverage": "covered",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "GitHub independently resolved the audit reference to 740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "auditValue": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+            "liveValue": "740eebbb21af164209331eae15e8c9bc2a86ec86"
+          },
+          {
+            "id": "source:fixtures/base-sepolia/contracts/VaultV1.sol",
+            "label": "fixtures/base-sepolia/contracts/VaultV1.sol",
+            "critical": true,
+            "coverage": "unresolved",
+            "decisive": false,
+            "strength": "strong",
+            "detail": "No corresponding verified live source was found",
+            "auditValue": "ab5cf9fd0650d5933c2e7daa0646b27433210716",
+            "liveValue": null
+          }
+        ],
+        "limitations": [
+          "No contract bytecode exists at this address"
+        ]
+      }
+    }
+  ]
+}
