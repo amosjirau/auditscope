@@ -25,6 +25,7 @@
     "@types/react-dom": "19.2.4",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.1",
+    "solc": "^0.8.24",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   }
