@@ -32,6 +32,16 @@ const extractedAddresses = z.object({
   }
 });
 
+const extractedBoolean = z.object({
+  value: z.boolean().nullable(),
+  confidence: z.enum(["high", "medium", "low"]),
+  evidence: z.array(evidenceCitationSchema),
+}).strict().superRefine((field, context) => {
+  if (field.value !== null && field.evidence.length === 0) {
+    context.addIssue({ code: "custom", path: ["evidence"], message: "Extracted values require a PDF citation" });
+  }
+});
+
 export const auditScopeSchema = z.object({
   auditor: extractedString,
   title: extractedString,
@@ -41,6 +51,7 @@ export const auditScopeSchema = z.object({
   tag: extractedString,
   contractAddresses: extractedAddresses,
   implementationAddresses: extractedAddresses,
+  addressIsScopeBoundary: extractedBoolean,
   sourceFiles: z.array(z.object({
     path: z.string().min(1),
     contractName: z.string().nullable(),
@@ -122,6 +133,7 @@ export const componentResultSchema = z.object({
   critical: z.boolean(),
   coverage: z.enum(["covered", "mismatch", "unresolved"]),
   decisive: z.boolean(),
+  strength: z.enum(["strong", "weak"]),
   detail: z.string(),
   auditValue: z.string().nullable(),
   liveValue: z.string().nullable(),

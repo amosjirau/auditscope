@@ -11,6 +11,7 @@ function component(
     critical: true,
     coverage,
     decisive,
+    strength: "strong" as const,
     detail: "test evidence",
     auditValue: null,
     liveValue: null,

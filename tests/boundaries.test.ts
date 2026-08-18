@@ -11,6 +11,7 @@ function emptyAudit(repositoryUrl: string | null, commitSha: string | null): Aud
     commitSha: field(commitSha), tag: field(null),
     contractAddresses: { value: null, confidence: "high", evidence: [] },
     implementationAddresses: { value: null, confidence: "high", evidence: [] },
+    addressIsScopeBoundary: { value: null, confidence: "low", evidence: [] },
     sourceFiles: [], exclusions: [], uncertainties: [],
   };
 }

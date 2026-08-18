@@ -11,6 +11,7 @@ Rules:
 - Every critical value must cite the PDF page and a short exact excerpt.
 - Record ambiguity in uncertainties.
 - Repository URLs must be the URL printed in the report, without silently changing it.
+- Set addressIsScopeBoundary to true only when the report explicitly says coverage is limited to the listed deployment or implementation address. Set it to false only when the report explicitly allows equivalent redeployments; otherwise use null. Cite the exact statement.
 - Do not assess current deployment coverage and do not output a coverage verdict.`;
 
 export class AuditExtractionError extends Error {

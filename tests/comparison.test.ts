@@ -16,6 +16,7 @@ function audit(overrides: Partial<AuditScope> = {}): AuditScope {
     auditor: extracted("Auditor"), title: extracted("Vault audit"), auditDate: extracted("2026-01-01"),
     repositoryUrl: extracted("https://github.com/example/vault"), commitSha: extracted("a".repeat(40)),
     tag: extracted(null), contractAddresses: extracted([address]), implementationAddresses: extracted(null),
+    addressIsScopeBoundary: extracted(null),
     sourceFiles: [{ path: "contracts/Vault.sol", contractName: "Vault", evidence: [{ page: 2, excerpt: "Vault.sol" }] }],
     exclusions: [], uncertainties: [], ...overrides,
   };
@@ -45,14 +46,111 @@ describe("compareEvidence", () => {
     expect(compareEvidence({ audit: audit(), deployment: deployment(), implementation: null, github: github() }).verdict).toBe("CURRENT");
   });
 
-  it("returns STALE for a live proxy implementation not covered by the audit", () => {
+  it("returns STALE when a live proxy implementation violates an explicit address scope boundary", () => {
     const result = compareEvidence({
-      audit: audit({ implementationAddresses: extracted(["0x3333333333333333333333333333333333333333"]) }),
+      audit: audit({
+        implementationAddresses: extracted(["0x3333333333333333333333333333333333333333"]),
+        addressIsScopeBoundary: extracted(true),
+      }),
       deployment: deployment({ isProxy: true, implementationAddress: implementation, proxyResolutionSource: "eip1967" }),
       implementation: deployment({ requestedAddress: implementation }),
       github: github(),
     });
     expect(result.verdict).toBe("STALE");
+  });
+
+  it("allows exact audited source to cover a redeployment at a different address", () => {
+    const result = compareEvidence({
+      audit: audit({ contractAddresses: extracted(["0x9999999999999999999999999999999999999999"]) }),
+      deployment: deployment(), implementation: null, github: github(),
+    });
+    expect(result.verdict).toBe("CURRENT");
+    expect(result.components.find((item) => item.id === "contract-address")?.critical).toBe(false);
+  });
+
+  it("does not make a proxy implementation-address mismatch STALE when exact audited source matches", () => {
+    const result = compareEvidence({
+      audit: audit({ implementationAddresses: extracted(["0x3333333333333333333333333333333333333333"]) }),
+      deployment: deployment({ isProxy: true, implementationAddress: implementation, proxyResolutionSource: "eip1967", sources: [] }),
+      implementation: deployment({ requestedAddress: implementation }),
+      github: github(),
+    });
+    expect(result.verdict).toBe("CURRENT");
+    expect(result.components.find((item) => item.id === "implementation-address")).toMatchObject({
+      coverage: "mismatch", critical: false, decisive: false,
+    });
+  });
+
+  it("returns STALE for a changed proxy implementation at address B when exact source differs from audited address A", () => {
+    const changed = `${source}\n// proxy implementation changed`;
+    const result = compareEvidence({
+      audit: audit({ implementationAddresses: extracted(["0x3333333333333333333333333333333333333333"]) }),
+      deployment: deployment({ isProxy: true, implementationAddress: implementation, proxyResolutionSource: "eip1967", sources: [] }),
+      implementation: deployment({
+        requestedAddress: implementation,
+        sources: [{ path: "contracts/Vault.sol", content: changed, contentHash: contentHash(changed) }],
+      }),
+      github: github(),
+    });
+    expect(result.verdict).toBe("STALE");
+  });
+
+  it("returns PARTIAL for a changed proxy implementation address when source evidence is unresolved", () => {
+    const result = compareEvidence({
+      audit: audit({ implementationAddresses: extracted(["0x3333333333333333333333333333333333333333"]) }),
+      deployment: deployment({ isProxy: true, implementationAddress: implementation, proxyResolutionSource: "eip1967", sources: [] }),
+      implementation: deployment({ requestedAddress: implementation, sources: [] }),
+      github: github(),
+    });
+    expect(result.verdict).toBe("PARTIAL");
+  });
+
+  it("returns STALE for a redeployment when exact live source differs", () => {
+    const changed = `${source}\n// changed deployment`;
+    const result = compareEvidence({
+      audit: audit({ contractAddresses: extracted(["0x9999999999999999999999999999999999999999"]) }),
+      deployment: deployment({ sources: [{ path: "contracts/Vault.sol", content: changed, contentHash: contentHash(changed) }] }),
+      implementation: null, github: github(),
+    });
+    expect(result.verdict).toBe("STALE");
+  });
+
+  it("returns PARTIAL for a redeployment when source evidence is unresolved but the commit resolves", () => {
+    const result = compareEvidence({
+      audit: audit({ contractAddresses: extracted(["0x9999999999999999999999999999999999999999"]) }),
+      deployment: deployment({ sources: [] }), implementation: null, github: github(),
+    });
+    expect(result.verdict).toBe("PARTIAL");
+  });
+
+  it("returns UNVERIFIED for a redeployment when source and historical evidence are unresolved", () => {
+    const result = compareEvidence({
+      audit: audit({ contractAddresses: extracted(["0x9999999999999999999999999999999999999999"]) }),
+      deployment: deployment({ sources: [] }), implementation: null,
+      github: github({ commitVerified: false, resolvedSha: null, files: [], error: "GitHub unavailable" }),
+    });
+    expect(result.verdict).toBe("UNVERIFIED");
+  });
+
+  it("does not award CURRENT from matching source text when Sourcify match is not exact", () => {
+    const result = compareEvidence({
+      audit: audit({ contractAddresses: extracted(null) }),
+      deployment: deployment({ match: "match" }), implementation: null, github: github(),
+    });
+    expect(result.verdict).toBe("PARTIAL");
+    expect(result.components.find((item) => item.id === "source:contracts/Vault.sol")).toMatchObject({
+      coverage: "unresolved", strength: "weak",
+    });
+  });
+
+  it("requires exact_match on the implementation rather than only the proxy", () => {
+    const result = compareEvidence({
+      audit: audit({ implementationAddresses: extracted(null), contractAddresses: extracted(null) }),
+      deployment: deployment({ isProxy: true, implementationAddress: implementation, proxyResolutionSource: "sourcify" }),
+      implementation: deployment({ requestedAddress: implementation, match: "match" }),
+      github: github(),
+    });
+    expect(result.verdict).not.toBe("CURRENT");
   });
 
   it("returns PARTIAL when a matched address has unresolved source evidence", () => {

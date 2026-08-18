@@ -16,6 +16,7 @@ const audit: AuditScope = {
   tag: { value: null, confidence: "low", evidence: [] },
   contractAddresses: { value: [proxy], confidence: "high", evidence: [{ page: 2, excerpt: proxy }] },
   implementationAddresses: { value: [implementation], confidence: "high", evidence: [{ page: 2, excerpt: implementation }] },
+  addressIsScopeBoundary: { value: null, confidence: "low", evidence: [] },
   sourceFiles: [{ path: "contracts/Vault.sol", contractName: "VaultV1", evidence: [{ page: 2, excerpt: "Vault.sol" }] }],
   exclusions: [], uncertainties: [],
 };
@@ -52,6 +53,7 @@ describe("verifyAuditCoverage", () => {
       onStage: (stage) => observed.push(stage.id),
     });
     expect(result.verdict).toBe("CURRENT");
+    expect(result.evidence.find((item) => item.id === "audit-extraction")?.strength).toBe("weak");
     expect(observed).toEqual(["audit", "deployment", "implementation", "github", "comparison"]);
     expect(dependencies.deployment).toHaveBeenCalledTimes(2);
   });

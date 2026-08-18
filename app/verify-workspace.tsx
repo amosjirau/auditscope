@@ -66,7 +66,43 @@ function Result({ result }: { result: VerificationResult }) {
     <p className="reason">{result.reason}</p>
     <dl className="addresses"><div><dt>Audited reference</dt><dd>{result.github.resolvedSha ?? result.github.requestedRef ?? "Not established"}</dd></div><div><dt>Live target</dt><dd>{result.deployment.implementationAddress ?? result.deployment.requestedAddress}</dd></div></dl>
     <details open><summary>Evidence matrix</summary><div className="matrix">{result.components.map((component) => <div className="matrix-row" key={component.id}><span className={`status ${component.coverage}`}>{component.coverage}</span><div><strong>{component.label}</strong><p>{component.detail}</p></div></div>)}</div></details>
+    <AuditClaims scope={result.auditScope} />
     {result.limitations.length > 0 && <div className="limitations"><strong>Limitations</strong><ul>{result.limitations.map((item) => <li key={item}>{item}</li>)}</ul></div>}
     <p className="disclaimer">AuditScope verifies audit-to-deployment coverage. It does not determine whether a contract is secure or free of vulnerabilities.</p>
   </article>;
+}
+
+function AuditClaims({ scope }: { scope: VerificationResult["auditScope"] }) {
+  const claims = [
+    ...claim("Auditor", scope.auditor.value, scope.auditor.evidence),
+    ...claim("Report title", scope.title.value, scope.title.evidence),
+    ...claim("Audit date", scope.auditDate.value, scope.auditDate.evidence),
+    ...claim("Repository", scope.repositoryUrl.value, scope.repositoryUrl.evidence),
+    ...claim("Commit", scope.commitSha.value, scope.commitSha.evidence),
+    ...claim("Tag", scope.tag.value, scope.tag.evidence),
+    ...claim("Contract addresses", scope.contractAddresses.value, scope.contractAddresses.evidence),
+    ...claim("Implementation addresses", scope.implementationAddresses.value, scope.implementationAddresses.evidence),
+    ...claim("Address is a scope boundary", scope.addressIsScopeBoundary.value, scope.addressIsScopeBoundary.evidence),
+    ...scope.sourceFiles.flatMap((source) => claim(`Source file: ${source.path}`, source.contractName ?? source.path, source.evidence)),
+    ...scope.exclusions.flatMap((exclusion) => claim("Exclusion", exclusion.text, exclusion.evidence)),
+  ];
+
+  return <details><summary>AI-extracted audit claims and PDF citations</summary>
+    <p className="claim-warning">These claims passed schema validation but are not independently verified until corroborated by GitHub, Sourcify, RPC, or exact correspondence.</p>
+    <div className="citations">{claims.map((item, index) => <div className="citation" key={`${item.label}-${item.page}-${index}`}>
+      <span>{item.page ? `Page ${item.page}` : "Page not identified"}</span>
+      <strong>{item.label}: {item.value}</strong>
+      <q>{item.excerpt}</q>
+    </div>)}</div>
+  </details>;
+}
+
+function claim(
+  label: string,
+  value: string | string[] | boolean | null,
+  evidence: Array<{ page: number | null; excerpt: string }>,
+) {
+  if (value === null || (Array.isArray(value) && value.length === 0)) return [];
+  const rendered = Array.isArray(value) ? value.join(", ") : String(value);
+  return evidence.map((citation) => ({ label, value: rendered, ...citation }));
 }

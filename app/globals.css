@@ -42,6 +42,11 @@ summary { font-weight:700; cursor:pointer; padding:16px 0; border-top:1px solid 
 .matrix-row { display:grid; grid-template-columns:90px 1fr; gap:14px; padding:14px 0; border-top:1px solid #ecece7; }
 .status { font-size:11px; text-transform:uppercase; font-weight:800; } .status.covered { color:#176b39; } .status.mismatch { color:#a3261d; } .status.unresolved { color:#8a5a00; }
 .matrix p { font-size:13px; }
+.claim-warning { margin:0 0 14px; color:var(--muted); font-size:13px; line-height:1.5; }
+.citations { display:grid; gap:10px; }
+.citation { display:grid; gap:6px; padding:13px; background:var(--paper); border-radius:7px; font-size:13px; }
+.citation>span { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
+.citation q { color:var(--muted); line-height:1.45; }
 .limitations { margin-top:24px; padding:16px; background:#fff8e7; border-radius:7px; font-size:13px; }
 .limitations ul { margin-bottom:0; padding-left:18px; } .limitations li+li { margin-top:7px; }
 .disclaimer,footer { color:var(--muted); font-size:12px; line-height:1.5; }

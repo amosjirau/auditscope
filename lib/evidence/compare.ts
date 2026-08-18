@@ -35,9 +35,10 @@ function sourceForPath<T extends { path: string }>(sources: T[], auditPath: stri
 }
 
 function result(
-  input: Omit<ComponentResult, "critical" | "decisive"> & Partial<Pick<ComponentResult, "critical" | "decisive">>,
+  input: Omit<ComponentResult, "critical" | "decisive" | "strength">
+    & Partial<Pick<ComponentResult, "critical" | "decisive" | "strength">>,
 ): ComponentResult {
-  return { critical: true, decisive: false, ...input };
+  return { critical: true, decisive: false, strength: "strong", ...input };
 }
 
 export function compareEvidence(input: {
@@ -64,6 +65,7 @@ export function compareEvidence(input: {
 
   const auditedImplementations = audit.implementationAddresses.value ?? [];
   const auditedAddresses = audit.contractAddresses.value ?? [];
+  const addressIsScopeBoundary = audit.addressIsScopeBoundary.value === true;
   const canCompareLiveAddress = deployment.hasCode && deployment.verificationStatus !== "error";
   if (deployment.isProxy && canCompareLiveAddress) {
     if (!deployment.implementationAddress) {
@@ -81,10 +83,13 @@ export function compareEvidence(input: {
         id: "implementation-address",
         label: "Audited vs live implementation",
         coverage: matched ? "covered" : "mismatch",
-        decisive: !matched,
+        critical: matched || addressIsScopeBoundary,
+        decisive: !matched && addressIsScopeBoundary,
         detail: matched
           ? "The live proxy points to an implementation address explicitly listed in the audit"
-          : "The live proxy points to an implementation address not listed in the audit",
+          : addressIsScopeBoundary
+            ? "The live proxy points to an implementation address outside the audit's explicit deployment scope"
+            : "The live implementation address differs, but the audit does not make address identity a scope boundary; exact source evidence governs coverage",
         auditValue: auditedImplementations.join(", "),
         liveValue: deployment.implementationAddress,
       }));
@@ -104,10 +109,13 @@ export function compareEvidence(input: {
       id: "contract-address",
       label: "Audited vs live contract address",
       coverage: matched ? "covered" : "mismatch",
-      decisive: !matched,
+      critical: matched || addressIsScopeBoundary,
+      decisive: !matched && addressIsScopeBoundary,
       detail: matched
         ? "The requested deployment address is explicitly listed in the audit"
-        : "The requested deployment address is not listed in the audit",
+        : addressIsScopeBoundary
+          ? "The requested deployment address is outside the audit's explicit deployment scope"
+          : "The deployment address differs, but the audit does not make address identity a scope boundary; exact source evidence governs coverage",
       auditValue: auditedAddresses.join(", "),
       liveValue: deployment.requestedAddress,
     }));
@@ -124,7 +132,9 @@ export function compareEvidence(input: {
     liveValue: github.resolvedSha,
   }));
 
-  const liveSources = deployment.isProxy ? (implementation?.sources ?? []) : deployment.sources;
+  const applicableLiveContract = deployment.isProxy ? implementation : deployment;
+  const liveSources = applicableLiveContract?.sources ?? [];
+  const hasExactSourcifyMatch = applicableLiveContract?.match === "exact_match";
   const sourceComponents: ComponentResult[] = [];
   if (audit.sourceFiles.length === 0) {
     components.push(result({
@@ -157,6 +167,22 @@ export function compareEvidence(input: {
       }
       const historicalHash = contentHash(historical.content);
       const matched = historicalHash === live.contentHash;
+      if (!hasExactSourcifyMatch) {
+        const component = result({
+          id,
+          label: auditedSource.path,
+          coverage: "unresolved",
+          strength: "weak",
+          detail: matched
+            ? "Source text matches, but Sourcify did not establish an exact match for the applicable live contract"
+            : "Sourcify did not establish an exact match for the applicable live contract, so returned source text cannot decide coverage",
+          auditValue: historicalHash,
+          liveValue: live.contentHash,
+        });
+        components.push(component);
+        sourceComponents.push(component);
+        continue;
+      }
       const component = result({
         id,
         label: auditedSource.path,
@@ -184,7 +210,7 @@ export function compareEvidence(input: {
       source: component.id === "historical-commit" || component.id.startsWith("source:") ? "github" : "rpc",
       label: component.label,
       status: component.coverage === "covered" ? "match" : component.coverage === "mismatch" ? "mismatch" : "unknown",
-      strength: "strong",
+      strength: component.strength,
       detail: component.detail,
       url: component.id === "historical-commit" && github.repositoryUrl && github.resolvedSha
         ? `${github.repositoryUrl}/commit/${github.resolvedSha}`

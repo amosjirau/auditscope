@@ -40,7 +40,7 @@ export async function verifyAuditCoverage(input: {
   };
 
   const auditScope = await dependencies.extract(input.pdf);
-  report({ id: "audit", label: "Audit parsed", status: "complete", detail: "Gemini output passed the strict AuditScope schema" });
+  report({ id: "audit", label: "Audit parsed", status: "complete", detail: "Gemini output passed the AuditScope schema; extracted claims still require evidence corroboration" });
 
   const deployment = await dependencies.deployment(input.chainId, input.address);
   report({
@@ -86,9 +86,9 @@ export async function verifyAuditCoverage(input: {
 
   const evidence = [
     {
-      id: "audit-extraction", source: "audit" as const, label: "Validated audit scope",
-      status: "observed" as const, strength: "strong" as const,
-      detail: `${auditScope.sourceFiles.length} source file(s), ${(auditScope.contractAddresses.value?.length ?? 0) + (auditScope.implementationAddresses.value?.length ?? 0)} address(es) extracted`,
+      id: "audit-extraction", source: "audit" as const, label: "AI-extracted audit claims",
+      status: "observed" as const, strength: "weak" as const,
+      detail: `${auditScope.sourceFiles.length} source file claim(s), ${(auditScope.contractAddresses.value?.length ?? 0) + (auditScope.implementationAddresses.value?.length ?? 0)} address claim(s) passed schema validation; citations are shown for inspection`,
       url: null,
     },
     {
