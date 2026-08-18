@@ -30,7 +30,7 @@ export async function extractAuditScope(pdf: Uint8Array): Promise<AuditScope> {
 
   try {
     const result = await generateText({
-      model: google(process.env.GEMINI_MODEL ?? "gemini-2.5-flash"),
+      model: google(process.env.GEMINI_MODEL ?? "gemini-3.5-flash"),
       output: Output.object({ schema: auditScopeSchema }),
       messages: [{
         role: "user",

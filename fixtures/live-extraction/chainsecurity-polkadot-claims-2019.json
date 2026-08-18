@@ -1,0 +1,127 @@
+{
+  "fixtureVersion": 1,
+  "generatedAt": "2026-08-18T13:59:44.756Z",
+  "model": "gemini-3.5-flash",
+  "source": {
+    "title": "Security Audit of the POLKADOT CLAIMS Smart Contract",
+    "publisher": "ChainSecurity",
+    "url": "https://chainsecurity.com/wp-content/uploads/2019/08/ChainSecurity_W3F.pdf",
+    "sha256": "164b2ee5b9474f23b45691c165e696ab3e673e48039d3b273702eddfb1b90539"
+  },
+  "validation": {
+    "schemaPassed": true,
+    "allChecksPassed": true,
+    "checks": {
+      "repositoryUrlExplicitlyExtracted": true,
+      "absentCommitRemainsNull": true,
+      "absentTagRemainsNull": true,
+      "onlyExplicitSourceFileExtracted": true,
+      "absentContractAddressesRemainNull": true,
+      "absentImplementationAddressesRemainNull": true,
+      "citedCriticalValues": true,
+      "addressScopeBoundaryRemainsNull": true
+    }
+  },
+  "scope": {
+    "auditor": {
+      "value": "ChainSecurity",
+      "confidence": "high",
+      "evidence": [
+        {
+          "page": 1,
+          "excerpt": "CHAINSECURITY"
+        }
+      ]
+    },
+    "title": {
+      "value": "Security Audit of the POLKADOT CLAIMS Smart Contract",
+      "confidence": "high",
+      "evidence": [
+        {
+          "page": 4,
+          "excerpt": "The WEB3 FOUNDATION engaged CHAINSECURITY to perform a security audit of the POLKADOT CLAIMS smart contract"
+        }
+      ]
+    },
+    "auditDate": {
+      "value": "July 26, 2019",
+      "confidence": "high",
+      "evidence": [
+        {
+          "page": 1,
+          "excerpt": "July 26, 2019"
+        }
+      ]
+    },
+    "repositoryUrl": {
+      "value": "https://github.com/w3f/polkadot-claims",
+      "confidence": "high",
+      "evidence": [
+        {
+          "page": 5,
+          "excerpt": "The repository is public and available at https://github.com/w3f/polkadot-claims."
+        }
+      ]
+    },
+    "commitSha": {
+      "value": null,
+      "confidence": "high",
+      "evidence": [
+        {
+          "page": 5,
+          "excerpt": "Git commit | code provided as .zip"
+        }
+      ]
+    },
+    "tag": {
+      "value": null,
+      "confidence": "high",
+      "evidence": []
+    },
+    "contractAddresses": {
+      "value": null,
+      "confidence": "high",
+      "evidence": []
+    },
+    "implementationAddresses": {
+      "value": null,
+      "confidence": "high",
+      "evidence": []
+    },
+    "addressIsScopeBoundary": {
+      "value": null,
+      "confidence": "high",
+      "evidence": []
+    },
+    "sourceFiles": [
+      {
+        "path": "./Claims.sol",
+        "contractName": "Claims",
+        "evidence": [
+          {
+            "page": 5,
+            "excerpt": "./Claims.sol f3035d1c3586846a15ab9a280eb49896c58522765561a8eb210ef4d7e8dcad22"
+          },
+          {
+            "page": 7,
+            "excerpt": "The WEB3 FOUNDATION set up a smart contract, called Claims"
+          }
+        ]
+      }
+    ],
+    "exclusions": [
+      {
+        "text": "The Frozen Token contract holds the current token balances of users and is used as a data source in the POLKADOT CLAIMS contract. It has previously been audited and is outside the scope of this audit.",
+        "evidence": [
+          {
+            "page": 7,
+            "excerpt": "The Frozen Token contract holds the current token balances of users and is used as a data source in the POLKADOT CLAIMS contract. It has previously been audited and is outside the scope of this audit."
+          }
+        ]
+      }
+    ],
+    "uncertainties": [
+      "No commit SHA is available because the code was provided as a ZIP file instead of a git commit/repository."
+    ]
+  }
+}
