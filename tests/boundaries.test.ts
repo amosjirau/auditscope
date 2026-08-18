@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { extractAuditScope } from "../lib/audit/extract";
+import { classifyGeminiFailure, extractAuditScope } from "../lib/audit/extract";
 import { lookupGitHubEvidence, normalizeGitHubRepository } from "../lib/adapters/github";
 import type { AuditScope } from "../lib/evidence/schemas";
 import { auditScopeSchema } from "../lib/evidence/schemas";
@@ -46,5 +46,20 @@ describe("untrusted input boundaries", () => {
     const malformed = emptyAudit(null, null);
     malformed.contractAddresses = { value: ["0x123"], confidence: "high", evidence: [{ page: 1, excerpt: "0x123" }] };
     expect(auditScopeSchema.safeParse(malformed).success).toBe(false);
+  });
+
+  it("classifies Gemini quota, rate-limit, timeout, and schema failures without exposing raw provider errors", () => {
+    expect(classifyGeminiFailure(new Error("generate_content_free_tier_requests quota exceeded"))).toMatchObject({
+      code: "GEMINI_QUOTA", retryable: false,
+    });
+    expect(classifyGeminiFailure(new Error("HTTP 429 rate limit"))).toMatchObject({
+      code: "GEMINI_RATE_LIMIT", retryable: true,
+    });
+    expect(classifyGeminiFailure(new Error("Connect Timeout Error"))).toMatchObject({
+      code: "GEMINI_TIMEOUT", retryable: true,
+    });
+    expect(classifyGeminiFailure(new Error("No object generated: response did not match schema"))).toMatchObject({
+      code: "GEMINI_INVALID_OUTPUT", retryable: true,
+    });
   });
 });
