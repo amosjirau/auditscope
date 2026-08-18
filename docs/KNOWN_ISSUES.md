@@ -11,4 +11,4 @@
 - Sourcify `match` responses are insufficient for authoritative source equivalence even when returned source text hashes equally. Only `exact_match` can promote source correspondence to strong covered or mismatched evidence.
 - PDF citations are displayed for inspection, but AuditScope does not independently verify that Gemini copied every excerpt faithfully against a separate PDF text layer in Day 1. Downstream GitHub/Sourcify/RPC corroboration remains required for a strong verdict.
 - GitHub source retrieval is bounded to the first 20 audited source files. A token is optional for public repositories but recommended to avoid anonymous API rate limits.
-- The P0 endpoint limits PDFs to 12 MB and holds each accepted PDF in server memory during extraction. Application-level rate limiting is not included in Day 1.
+- The public Vercel endpoint limits PDFs to 4 MB so multipart requests remain below Vercel's 4.5 MB function payload limit. Each accepted PDF is held in server memory during extraction. Application-level rate limiting is not included in V1.

@@ -12,3 +12,6 @@
 10. Never describe CURRENT as "safe", "secure", or "vulnerability-free".
 11. Do not execute arbitrary repository code.
 12. Investigation agent tool loop must be bounded.
+13. Gemini, GitHub, Base RPC, and Sourcify variables remain server-only and must never use a `NEXT_PUBLIC_` prefix.
+14. Demo presets may select public inputs but must execute the same production pipeline; no fixture verdict may be returned.
+15. Model selection is explicit. AuditScope must not silently switch models or use cached evidence without identifying its source.

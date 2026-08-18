@@ -19,4 +19,4 @@ Open evidence. Explain that AI handles messy document understanding, while GitHu
 "AuditScope doesn't claim a protocol is safe. It answers a narrower question exchanges, launchpads and users should be able to ask instantly: does this audit still cover what I'm using?"
 
 ## Demo reliability
-Use two real Base Sepolia fixtures: one CURRENT and one STALE. Cache previously retrieved real evidence as a fallback, clearly identified as cached evidence.
+Use the one-click real Base Sepolia fixtures: one CURRENT and one STALE. The preset may cache the public synthetic PDF asset, but it must execute Gemini, GitHub, RPC, Sourcify, and deterministic comparison on every run. AuditScope has no cached verdict fallback; any future cached evidence mode must be explicit in both the result and evidence source labels.
