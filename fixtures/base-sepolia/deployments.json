@@ -1,0 +1,98 @@
+{
+  "fixtureVersion": 1,
+  "generatedAt": "2026-08-18T14:53:31.596Z",
+  "chainId": 84532,
+  "deployerAddress": "0x76D753410be13BF383366a0F566f90c2d1819b67",
+  "deployerBalanceBefore": "0.004974040891864084",
+  "compilerVersion": "0.8.24+commit.e11b9ed9",
+  "sourceCommit": "740eebbb21af164209331eae15e8c9bc2a86ec86",
+  "current": {
+    "implementation": {
+      "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+      "transactionHash": "0x2c3651c28e82c85e7881a432a22e33ee804be5e4c5c3db5885f28bbce31c8a27",
+      "blockNumber": "45648236"
+    },
+    "proxy": {
+      "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+      "transactionHash": "0xc0cc770855863ba76ebaeeedd79d7b78954f52558af8706ea5113b292954f153",
+      "blockNumber": "45648239"
+    },
+    "initialization": {
+      "transactionHash": "0xad7fb18323c944d3880457e3f6d98dd9f333cca5c4c8c54ac03466550e846666",
+      "blockNumber": "45648242"
+    }
+  },
+  "stale": {
+    "initialImplementation": {
+      "address": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+      "transactionHash": "0x46ddbf6bb7e9e3d3148687127e08afa9f5f23eabaefc4c842dc05b4950bbb55a",
+      "blockNumber": "45648244"
+    },
+    "implementation": {
+      "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+      "transactionHash": "0x8a389e9f637e2ea7359966d332d492a175af507f1376edddb37456d6a1c05eb0",
+      "blockNumber": "45648249"
+    },
+    "proxy": {
+      "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+      "transactionHash": "0xb20ea3c98f8791686ecf107a789716b9e93f3671c2f09d5c2afaf447f8a4f65e",
+      "blockNumber": "45648246"
+    },
+    "initialization": {
+      "transactionHash": "0x8b1b6f1fa64005341e00ca3726e9bff32a7f0ba5674393bbb926d402197fa106",
+      "blockNumber": "45648248"
+    },
+    "upgrade": {
+      "transactionHash": "0xd56be6c567f8c490eb0ab5f036ca70a086b78583d53eb091e627fbab619ceccb",
+      "blockNumber": "45648251"
+    }
+  },
+  "partial": {
+    "implementation": {
+      "address": "0x1584AE516269233af9A6dE1E17028D04B93CAE77",
+      "transactionHash": "0x2f6c390dfb130f2971500eba00670e134f717014fbb6155cf663f9f36cb0b983",
+      "blockNumber": "45648252"
+    },
+    "proxy": {
+      "address": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+      "transactionHash": "0x89c93b00e0284760a950cdf8d4a2c7f5967dfd91fdc366cc6a3bc6d58dd08203",
+      "blockNumber": "45648254"
+    }
+  },
+  "unverified": {
+    "address": "0x76D753410be13BF383366a0F566f90c2d1819b67",
+    "reason": "Funded EOA has no contract bytecode"
+  },
+  "verification": [
+    {
+      "address": "0x903C90A8879d54D719Fb1D0De22C105a2f380938",
+      "verificationId": "f9deddd4-f021-4c97-a859-5bcdd55ee349",
+      "match": "exact_match"
+    },
+    {
+      "address": "0xD0267cb3Cb1F57b4471270304934C06C06F3ec0f",
+      "verificationId": "372f0527-7866-4b3d-9c7e-c8dcb95d72c1",
+      "match": "exact_match"
+    },
+    {
+      "address": "0x99a32A7715D49714D2aba8Ccc57a468B19Be258F",
+      "verificationId": "a16e014f-4033-4687-ae4d-52521c0d6c09",
+      "match": "exact_match"
+    },
+    {
+      "address": "0xC7A79CD13dda7967588549a83110012DCc395266",
+      "verificationId": "d97a8e08-351f-4f79-8610-dd1da719eb76",
+      "match": "exact_match"
+    },
+    {
+      "address": "0x0Bd5Dd0831139566Dc5166BA74F0891eb44A7b03",
+      "verificationId": "f8b594b5-75f4-409b-af43-94861570b861",
+      "match": "exact_match"
+    },
+    {
+      "address": "0x3E14Df03d2e3fEC961DAb781107D446c1AAC365E",
+      "verificationId": "8d28d28f-63d3-4ff2-80b3-826319b2aa2e",
+      "match": "exact_match"
+    }
+  ]
+}

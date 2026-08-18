@@ -4,7 +4,6 @@ import solc from "solc";
 import {
   createPublicClient,
   createWalletClient,
-  encodeFunctionData,
   formatEther,
   getAddress,
   http,
@@ -40,6 +39,7 @@ async function main() {
   const walletClient = createWalletClient({ account, chain: baseSepolia, transport: http(rpcUrl) });
   const balance = await publicClient.getBalance({ address: account.address });
   if (balance === 0n) throw new Error(`Fixture deployer ${account.address} has no Base Sepolia ETH`);
+  let nextNonce = await publicClient.getTransactionCount({ address: account.address, blockTag: "pending" });
 
   const [v1Content, v2Content, proxyContent, incompleteContent] = await Promise.all([
     readFile(auditedSourcePath, "utf8"),
@@ -58,31 +58,41 @@ async function main() {
       abi: compilation.contract.abi,
       bytecode: `0x${compilation.contract.evm.bytecode.object}`,
       args,
+      nonce: nextNonce,
     } as never);
+    nextNonce += 1;
     const receipt = await publicClient.waitForTransactionReceipt({ hash: transactionHash });
+    if (receipt.status !== "success") throw new Error(`Deployment ${transactionHash} reverted`);
     if (!receipt.contractAddress) throw new Error(`Deployment ${transactionHash} did not create a contract`);
     return { address: getAddress(receipt.contractAddress), transactionHash, blockNumber: receipt.blockNumber.toString() };
   };
 
-  const initializeV1 = encodeFunctionData({ abi: v1.contract.abi, functionName: "initialize", args: [account.address] });
-  const initializeIncomplete = encodeFunctionData({ abi: incomplete.contract.abi, functionName: "initialize", args: [account.address] });
+  const call = async (address: Address, abi: readonly unknown[], functionName: string, args: readonly unknown[]) => {
+    const transactionHash = await walletClient.writeContract({
+      address,
+      abi,
+      functionName,
+      args,
+      nonce: nextNonce,
+    } as never);
+    nextNonce += 1;
+    const receipt = await publicClient.waitForTransactionReceipt({ hash: transactionHash });
+    if (receipt.status !== "success") throw new Error(`Call ${transactionHash} reverted`);
+    return { transactionHash, blockNumber: receipt.blockNumber.toString() };
+  };
 
   const currentImplementation = await deploy(v1);
-  const currentProxy = await deploy(proxy, [currentImplementation.address, initializeV1]);
+  const currentProxy = await deploy(proxy, [currentImplementation.address, "0x"]);
+  const currentInitialization = await call(currentProxy.address, v1.contract.abi, "initialize", [account.address]);
 
   const staleInitialImplementation = await deploy(v1);
-  const staleProxy = await deploy(proxy, [staleInitialImplementation.address, initializeV1]);
+  const staleProxy = await deploy(proxy, [staleInitialImplementation.address, "0x"]);
+  const staleInitialization = await call(staleProxy.address, v1.contract.abi, "initialize", [account.address]);
   const staleImplementation = await deploy(v2);
-  const upgradeHash = await walletClient.writeContract({
-    address: staleProxy.address,
-    abi: v1.contract.abi,
-    functionName: "upgradeToAndCall",
-    args: [staleImplementation.address, "0x"],
-  } as never);
-  const upgradeReceipt = await publicClient.waitForTransactionReceipt({ hash: upgradeHash });
+  const staleUpgrade = await call(staleProxy.address, v1.contract.abi, "upgradeToAndCall", [staleImplementation.address, "0x"]);
 
   const incompleteImplementation = await deploy(incomplete);
-  const partialProxy = await deploy(proxy, [incompleteImplementation.address, initializeIncomplete]);
+  const partialProxy = await deploy(proxy, [incompleteImplementation.address, "0x"]);
 
   const verification = [
     await verify(currentImplementation.address, currentImplementation.transactionHash, v1),
@@ -104,13 +114,13 @@ async function main() {
     deployerBalanceBefore: formatEther(balance),
     compilerVersion,
     sourceCommit: process.env.AUDIT_SCOPE_SOURCE_COMMIT ?? null,
-    current: { implementation: currentImplementation, proxy: currentProxy },
+    current: { implementation: currentImplementation, proxy: currentProxy, initialization: currentInitialization },
     stale: {
       initialImplementation: staleInitialImplementation,
       implementation: staleImplementation,
       proxy: staleProxy,
-      upgradeTransactionHash: upgradeHash,
-      upgradeBlockNumber: upgradeReceipt.blockNumber.toString(),
+      initialization: staleInitialization,
+      upgrade: staleUpgrade,
     },
     partial: { implementation: incompleteImplementation, proxy: partialProxy },
     unverified: { address: account.address, reason: "Funded EOA has no contract bytecode" },
@@ -159,9 +169,10 @@ async function verify(address: Address, transactionHash: Hex, compilation: Compi
     const status = await statusResponse.json() as {
       isJobCompleted?: boolean;
       verification?: { match?: string };
+      contract?: { match?: string };
     };
     if (status.isJobCompleted) {
-      const match = status.verification?.match;
+      const match = status.contract?.match ?? status.verification?.match;
       if (!match) throw new Error(`Sourcify verification failed: ${JSON.stringify(status)}`);
       return { address, verificationId: submission.verificationId, match };
     }
