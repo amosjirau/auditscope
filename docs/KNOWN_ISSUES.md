@@ -1,5 +1,6 @@
 # Known Issues
 
+- Controlled Base Sepolia deployment is currently blocked at testnet funding. The generated, locally held fixture deployer `0x76D753410be13BF383366a0F566f90c2d1819b67` has zero Base Sepolia ETH. The Ethereum Ecosystem faucet reports its deployment paused, Bware Labs returns a DNS origin error, ETH Faucet requires BringID/wallet proof, and QuickNode rejects a fresh address without mainnet balance. The available no-login ZalalenA faucet requires a human CAPTCHA. No mock deployment or weakened verdict rule has been substituted.
 - Live PDF extraction was validated with `gemini-3.5-flash` against ChainSecurity's public Polkadot Claims report; the sanitized result is stored under `fixtures/live-extraction/`. The five-consecutive-run full verdict demo check has not been executed.
 - The previous `gemini-2.5-flash` default is unavailable for this API account, and `gemini-3.6-flash` timed out through the current AI SDK even for a minimal text request. `gemini-3.5-flash` completed both the SDK compatibility probe and the audit PDF extraction.
 - No controlled CURRENT/STALE Base Sepolia full-verdict fixtures or cached real-evidence fallback are bundled yet. The deterministic pipeline is covered with injected fixture evidence, while live Sourcify v2 response structure was checked against Base Mainnet.
