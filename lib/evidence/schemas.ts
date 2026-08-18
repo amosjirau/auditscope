@@ -16,13 +16,21 @@ const extractedString = z.object({
   value: z.string().nullable(),
   confidence: z.enum(["high", "medium", "low"]),
   evidence: z.array(evidenceCitationSchema),
-}).strict();
+}).strict().superRefine((field, context) => {
+  if (field.value !== null && field.evidence.length === 0) {
+    context.addIssue({ code: "custom", path: ["evidence"], message: "Extracted values require a PDF citation" });
+  }
+});
 
-const extractedStrings = z.object({
-  value: z.array(z.string()).nullable(),
+const extractedAddresses = z.object({
+  value: z.array(evmAddressSchema).nullable(),
   confidence: z.enum(["high", "medium", "low"]),
   evidence: z.array(evidenceCitationSchema),
-}).strict();
+}).strict().superRefine((field, context) => {
+  if (field.value !== null && field.value.length > 0 && field.evidence.length === 0) {
+    context.addIssue({ code: "custom", path: ["evidence"], message: "Extracted addresses require a PDF citation" });
+  }
+});
 
 export const auditScopeSchema = z.object({
   auditor: extractedString,
@@ -31,16 +39,16 @@ export const auditScopeSchema = z.object({
   repositoryUrl: extractedString,
   commitSha: extractedString,
   tag: extractedString,
-  contractAddresses: extractedStrings,
-  implementationAddresses: extractedStrings,
+  contractAddresses: extractedAddresses,
+  implementationAddresses: extractedAddresses,
   sourceFiles: z.array(z.object({
     path: z.string().min(1),
     contractName: z.string().nullable(),
-    evidence: z.array(evidenceCitationSchema),
+    evidence: z.array(evidenceCitationSchema).min(1),
   }).strict()),
   exclusions: z.array(z.object({
     text: z.string().min(1),
-    evidence: z.array(evidenceCitationSchema),
+    evidence: z.array(evidenceCitationSchema).min(1),
   }).strict()),
   uncertainties: z.array(z.string()),
 }).strict();

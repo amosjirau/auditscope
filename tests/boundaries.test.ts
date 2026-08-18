@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { extractAuditScope } from "../lib/audit/extract";
 import { lookupGitHubEvidence, normalizeGitHubRepository } from "../lib/adapters/github";
 import type { AuditScope } from "../lib/evidence/schemas";
+import { auditScopeSchema } from "../lib/evidence/schemas";
 
 function emptyAudit(repositoryUrl: string | null, commitSha: string | null): AuditScope {
   const field = (value: string | null) => ({ value, confidence: "high" as const, evidence: [] });
@@ -36,5 +37,13 @@ describe("untrusted input boundaries", () => {
     expect(evidence.commitVerified).toBe(false);
     expect(evidence.error).toContain("does not identify a commit or tag");
     expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("rejects model values without citations and malformed extracted addresses", () => {
+    const uncited = emptyAudit("https://github.com/openai/example", null);
+    expect(auditScopeSchema.safeParse(uncited).success).toBe(false);
+    const malformed = emptyAudit(null, null);
+    malformed.contractAddresses = { value: ["0x123"], confidence: "high", evidence: [{ page: 1, excerpt: "0x123" }] };
+    expect(auditScopeSchema.safeParse(malformed).success).toBe(false);
   });
 });
